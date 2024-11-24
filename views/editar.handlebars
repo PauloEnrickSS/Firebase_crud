@@ -3,28 +3,24 @@
     <form action="/atualizar" method="POST">
         <input type="hidden" class="form-control" id="id" name="id" value="{{data.id}}">
         <div class="mb-3 text-start">
-            <label class="form-label">Nome:</label>
-            <input type="text" name="nome" class="form-control" id="nome" value="{{data.nome}}">
+            <label class="form-label">Modelo:</label>
+            <input type="text" name="modelo" class="form-control" id="modelo" value="{{data.modelo}}">
         </div>
         <div class="mb-3 text-start">
-            <label class="form-label">Telefone:</label>
-            <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(00)00000-0000" value="{{data.telefone}}">
+            <label class="form-label">Ano:</label>
+            <input type="text" name="ano" class="form-control" id="ano" value="{{data.ano}}">
         </div>
         <div class="mb-3 text-start">
-            <label class="form-label">Origem:</label>
-            <select class="form-select" aria-label="Default select example" id="origem" name="origem">
-                <option value="celular" {{#if (eq data.origem "celular")}}selected{{/if}}>Celular</option>
-                <option value="whatsapp" {{#if (eq data.origem "whatsapp")}}selected{{/if}}>Whatsapp</option>
-                <option value="telefone_fixo" {{#if (eq data.origem "telefone_fixo")}}selected{{/if}}>Telefone Fixo</option>
-            </select>
+            <label class="form-label">Cor:</label>
+            <input type="text" name="cor" class="form-control" id="cor" value="{{data.cor}}">
         </div>
         <div class="mb-3 text-start">
-            <label class="form-label">Data do Contato:</label>
-            <input type="date" name="data_contato" class="form-control" id="data_contato" aria-describedby="emailHelp" value="{{data.data_contato}}">
+            <label class="form-label">Marca:</label>
+            <input type="text" name="marca" class="form-control" id="marca" value="{{data.marca}}">
         </div>
         <div class="mb-3 text-start">
-            <label class="form-label">Observação:</label>
-            <textarea name="observacao" class="form-control" placeholder="" id="observacao" style="height: 100px">{{data.observacao}}</textarea>
+            <label class="form-label">placa:</label>
+            <textarea name="placa" class="form-control" id="placa" style="height: 100px">{{data.placa}}</textarea>
         </div>
         <div class="mb-3 text-start">
             <button type="submit" class="btn btn-primary">Salvar</button>

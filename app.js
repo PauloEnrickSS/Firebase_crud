@@ -24,48 +24,48 @@ app.get("/", function(req, res){
 })
 
 app.get("/consulta", async function(req, res){
-    const dataSnapshot = await db.collection('agendamentos').get();
+    const dataSnapshot = await db.collection('carros').get();
     const data = [];
     dataSnapshot.forEach((doc) => {
         data.push({
             id: doc.id,
-            nome: doc.get('nome'),
-            telefone: doc.get('telefone'),
-            origem: doc.get('origem'),
-            data_contato: doc.get('data_contato'),
-            observacao: doc.get('observacao'),
+            modelo: doc.get('modelo'),
+            ano: doc.get('ano'),
+            cor: doc.get('cor'),
+            marca: doc.get('marca'),
+            placa: doc.get('placa'),
         });
     });
     res.render("consulta", { data });
 })
 
 app.get("/editar/:id", async function (req, res) {
-    const dataSnapshot = await db.collection('agendamentos').doc(req.params.id).get();
+    const dataSnapshot = await db.collection('carros').doc(req.params.id).get();
     const data = {
         id: dataSnapshot.id,
-        nome: dataSnapshot.get('nome'),
-        telefone: dataSnapshot.get('telefone'),
-        origem: dataSnapshot.get('origem'),
-        data_contato: dataSnapshot.get('data_contato'),
-        observacao: dataSnapshot.get('observacao'),
+        modelo: dataSnapshot.get('modelo'),
+        ano: dataSnapshot.get('ano'),
+        cor: dataSnapshot.get('cor'),
+        marca: dataSnapshot.get('marca'),
+        placa: dataSnapshot.get('placa'),
     };
 
     res.render("editar", { data });
 });
 
 app.get("/excluir/:id", function (req, res) {
-    db.collection('agendamentos').doc(req.params.id).delete().then(function () {
+    db.collection('carros').doc(req.params.id).delete().then(function () {
         console.log('Deleted document');
         res.redirect('/consulta');
     });
 });
 app.post("/cadastrar", function(req, res){
-    var result = db.collection('agendamentos').add({
-        nome: req.body.nome,
-        telefone: req.body.telefone,
-        origem: req.body.origem,
-        data_contato: req.body.data_contato,
-        observacao: req.body.observacao
+    var result = db.collection('carros').add({
+        modelo: req.body.modelo,
+        ano: req.body.ano,
+        cor: req.body.cor,
+        marca: req.body.marca,
+        placa: req.body.placa
     }).then(function(){
         console.log('Added document');
         res.redirect('/')
